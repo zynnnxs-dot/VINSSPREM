@@ -1,6 +1,48 @@
 // Ganti nomor ini dengan nomor WhatsApp tokomu (format: kode negara tanpa "+" atau "0" di depan)
 const NOMOR_WHATSAPP = "6285715559734";
 
+// ---------- App picker (klik ikon buat buka daftar paket) ----------
+
+const tiles = Array.from(document.querySelectorAll(".picker__tile"));
+const boards = Array.from(document.querySelectorAll(".board"));
+const pickerHint = document.getElementById("pickerHint");
+
+function closeAllBoards() {
+  boards.forEach((board) => (board.hidden = true));
+  tiles.forEach((tile) => {
+    tile.classList.remove("is-active");
+    tile.setAttribute("aria-expanded", "false");
+  });
+  pickerHint.hidden = false;
+}
+
+function openBoard(id, tile) {
+  boards.forEach((board) => (board.hidden = board.id !== id));
+  tiles.forEach((t) => {
+    const isThis = t === tile;
+    t.classList.toggle("is-active", isThis);
+    t.setAttribute("aria-expanded", String(isThis));
+  });
+  pickerHint.hidden = true;
+
+  const opened = document.getElementById(id);
+  opened.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+tiles.forEach((tile) => {
+  tile.addEventListener("click", () => {
+    const targetId = tile.dataset.target;
+    const alreadyOpen = tile.classList.contains("is-active");
+    alreadyOpen ? closeAllBoards() : openBoard(targetId, tile);
+  });
+});
+
+document.querySelectorAll("[data-close]").forEach((btn) => {
+  btn.addEventListener("click", closeAllBoards);
+});
+
+// ---------- Order summary ----------
+
 const rows = Array.from(document.querySelectorAll(".row"));
 const summaryCount = document.getElementById("summaryCount");
 const summaryTotal = document.getElementById("summaryTotal");

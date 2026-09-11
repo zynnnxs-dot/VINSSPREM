@@ -20,8 +20,53 @@
 
 <main>
 
+  <!-- APP PICKER -->
+  <nav class="picker" aria-label="Pilih aplikasi">
+    <button class="picker__tile" data-target="netflix" aria-expanded="false">
+      <span class="picker__icon picker__icon--netflix">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 4.5H9.6L15 15.2V4.5H17V19.5H14.4L9 8.8V19.5H7V4.5Z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="picker__label">Netflix</span>
+    </button>
+
+    <button class="picker__tile" data-target="canva" aria-expanded="false">
+      <span class="picker__icon picker__icon--canva">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="canvaGrad" x1="4" y1="4" x2="20" y2="20" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#1FC8B8"/>
+              <stop offset="1" stop-color="#7C3AED"/>
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="12" r="9" fill="url(#canvaGrad)"/>
+          <path d="M7.5 16.5L14.5 7.8C15 7.2 15.9 7.2 16.4 7.8C16.9 8.4 16.8 9.2 16.2 9.7L9 16.2L6.8 17L7.5 16.5Z" fill="white"/>
+          <circle cx="7.6" cy="17.6" r="0.9" fill="white"/>
+        </svg>
+      </span>
+      <span class="picker__label">Canva</span>
+    </button>
+
+    <button class="picker__tile" data-target="alight-motion" aria-expanded="false">
+      <span class="picker__icon picker__icon--alight">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" fill="#1A2036"/>
+          <path d="M8 8.5C10.5 6 15 6.8 16.3 10C17.4 12.7 15.3 16 12.2 15.7" stroke="#2FE0A8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M9.3 10.3C10.8 8.9 13.2 9.4 13.8 11.1C14.3 12.6 13.1 14.2 11.4 14" stroke="#2FE0A8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="picker__label">Alight Motion</span>
+    </button>
+  </nav>
+
+  <p class="picker__hint" id="pickerHint">Pilih salah satu aplikasi di atas buat lihat pilihan paketnya.</p>
+
   <!-- NETFLIX -->
-  <section class="board" id="netflix">
+  <section class="board" id="netflix" hidden>
+    <div class="board__backrow">
+      <button class="board__back" data-close type="button">← Aplikasi lain</button>
+    </div>
     <div class="board__header">
       <h2 class="board__title">Netflix</h2>
       <span class="board__note">Pilih sesuai kebutuhan tontonanmu</span>
@@ -59,7 +104,10 @@
   </section>
 
   <!-- CANVA -->
-  <section class="board" id="canva">
+  <section class="board" id="canva" hidden>
+    <div class="board__backrow">
+      <button class="board__back" data-close type="button">← Aplikasi lain</button>
+    </div>
     <div class="board__header">
       <h2 class="board__title">Canva</h2>
       <span class="board__note">Untuk yang tiap hari buka Canva buat desain</span>
@@ -88,7 +136,10 @@
   </section>
 
   <!-- ALIGHT MOTION -->
-  <section class="board" id="alight-motion">
+  <section class="board" id="alight-motion" hidden>
+    <div class="board__backrow">
+      <button class="board__back" data-close type="button">← Aplikasi lain</button>
+    </div>
     <div class="board__header">
       <h2 class="board__title">Alight Motion</h2>
       <span class="board__note">Buat yang serius edit video dari HP</span>
