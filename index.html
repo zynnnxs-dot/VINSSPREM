@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etalase Akun — Netflix, Canva, Alight Motion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <h1 class="wordmark">Etalase</h1>
+    <p class="tagline">Akun premium harian — Netflix, Canva, dan Alight Motion, dibuka satu per satu di sini.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- NETFLIX -->
+  <section class="board" id="netflix">
+    <div class="board__header">
+      <h2 class="board__title">Netflix</h2>
+      <span class="board__note">Pilih sesuai kebutuhan tontonanmu</span>
+    </div>
+    <ul class="board__list" data-category="Netflix">
+
+      <li class="row" data-name="Netflix Basic" data-price="5000">
+        <label class="row__select">
+          <input type="checkbox" class="row__check">
+          <span class="row__name">Netflix Basic</span>
+        </label>
+        <span class="row__leader" aria-hidden="true"></span>
+        <span class="row__price">Rp5.000</span>
+      </li>
+
+      <li class="row" data-name="Netflix VIP" data-price="10000">
+        <label class="row__select">
+          <input type="checkbox" class="row__check">
+          <span class="row__name">Netflix VIP</span>
+        </label>
+        <span class="row__leader" aria-hidden="true"></span>
+        <span class="row__price">Rp10.000</span>
+      </li>
+
+      <li class="row" data-name="Netflix Reseller" data-price="30000">
+        <label class="row__select">
+          <input type="checkbox" class="row__check">
+          <span class="row__name">Netflix Reseller</span>
+        </label>
+        <span class="row__leader" aria-hidden="true"></span>
+        <span class="row__price">Rp30.000</span>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- CANVA -->
+  <section class="board" id="canva">
+    <div class="board__header">
+      <h2 class="board__title">Canva</h2>
+      <span class="board__note">Untuk yang tiap hari buka Canva buat desain</span>
+    </div>
+    <ul class="board__list" data-category="Canva">
+
+      <li class="row" data-name="Canva Basic" data-price="5000">
+        <label class="row__select">
+          <input type="checkbox" class="row__check">
+          <span class="row__name">Canva Basic</span>
+        </label>
+        <span class="row__leader" aria-hidden="true"></span>
+        <span class="row__price">Rp5.000</span>
+      </li>
+
+      <li class="row" data-name="Canva VIP" data-price="10000">
+        <label class="row__select">
+          <input type="checkbox" class="row__check">
+          <span class="row__name">Canva VIP</span>
+        </label>
+        <span class="row__leader" aria-hidden="true"></span>
+        <span class="row__price">Rp10.000</span>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ALIGHT MOTION -->
+  <section class="board" id="alight-motion">
+    <div class="board__header">
+      <h2 class="board__title">Alight Motion</h2>
+      <span class="board__note">Buat yang serius edit video dari HP</span>
+    </div>
+    <ul class="board__list" data-category="Alight Motion">
+
+      <li class="row" data-name="Alight Motion 1 Tahun" data-price="3000">
+        <label class="row__select">
+          <input type="checkbox" class="row__check">
+          <span class="row__name">Alight Motion 1 Tahun</span>
+        </label>
+        <span class="row__leader" aria-hidden="true"></span>
+        <span class="row__price">Rp3.000</span>
+      </li>
+
+      <li class="row" data-name="Alight Motion Generate Prem" data-price="15000">
+        <label class="row__select">
+          <input type="checkbox" class="row__check">
+          <span class="row__name">Alight Motion Generate Prem</span>
+        </label>
+        <span class="row__leader" aria-hidden="true"></span>
+        <span class="row__price">Rp15.000</span>
+      </li>
+
+    </ul>
+  </section>
+
+</main>
+
+<!-- ORDER SUMMARY BAR -->
+<div class="summary" id="summary">
+  <div class="summary__inner">
+    <div class="summary__text">
+      <span class="summary__count" id="summaryCount">0 item dipilih</span>
+      <span class="summary__total" id="summaryTotal">Rp0</span>
+    </div>
+    <button class="summary__button" id="orderButton" disabled>Pesan via WhatsApp</button>
+  </div>
+</div>
+
+<section class="payment">
+  <div class="payment__inner">
+    <div class="payment__text">
+      <h2 class="payment__title">Pembayaran</h2>
+      <p class="payment__desc">Scan QRIS di samping pakai aplikasi bank atau e-wallet apa saja, lalu kirim bukti bayar ke WhatsApp biar pesanan langsung diproses.</p>
+      <span class="payment__store">VYNX STORE</span>
+    </div>
+    <div class="payment__code">
+      <img src="qris.jpg" alt="Kode QRIS pembayaran VYNX STORE" class="payment__img">
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>Pembayaran dikonfirmasi manual lewat chat. Akun dikirim setelah pembayaran diterima.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

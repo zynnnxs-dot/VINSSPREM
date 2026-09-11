@@ -1,0 +1,350 @@
+:root {
+  /* color */
+  --ink: #E9EFEE;
+  --ink-dim: #9FB4B2;
+  --bg: #102227;
+  --panel: #163037;
+  --panel-line: #274850;
+  --gold: #E8A33D;
+  --gold-dim: #7A5C2C;
+  --wa: #3FA772;
+
+  /* type */
+  --display: 'Fraunces', serif;
+  --body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-font-smoothing: antialiased; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.5;
+  padding-bottom: 96px; /* room for sticky summary */
+
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -5%, rgba(232, 163, 61, 0.14), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 15%, rgba(63, 167, 114, 0.10), transparent 55%),
+    linear-gradient(180deg, #0F2126 0%, #102227 40%, #0C1B1F 100%),
+    repeating-linear-gradient(90deg, rgba(233, 239, 238, 0.025) 0px, rgba(233, 239, 238, 0.025) 1px, transparent 1px, transparent 64px);
+  background-attachment: fixed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  padding: 4.5rem 1.5rem 3rem;
+  border-bottom: 1px solid var(--panel-line);
+}
+
+.masthead__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.wordmark {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 7vw, 3.4rem);
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: 1.05rem;
+  max-width: 34ch;
+}
+
+/* ---------- Boards (product lists) ---------- */
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.board {
+  padding: 2.75rem 0;
+  border-bottom: 1px solid var(--panel-line);
+}
+
+.board:last-child {
+  border-bottom: none;
+}
+
+.board__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.board__title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin: 0;
+  color: var(--gold);
+}
+
+.board__note {
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+}
+
+.board__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+}
+
+.row__select {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.row__check {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--panel-line);
+  border-radius: 4px;
+  background: var(--panel);
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transform: translateY(3px);
+}
+
+.row__check:checked {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.row__check:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.row__check:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.row__name {
+  font-size: 1.05rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.row__leader {
+  flex: 1;
+  border-bottom: 1.5px dotted var(--panel-line);
+  height: 0;
+  min-width: 24px;
+  transform: translateY(-4px);
+}
+
+.row__price {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.05rem;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+
+.row:has(.row__check:checked) .row__price {
+  color: var(--gold);
+}
+
+.row:has(.row__check:checked) .row__name {
+  color: var(--ink);
+}
+
+/* ---------- Payment (QRIS) ---------- */
+
+.payment {
+  max-width: 640px;
+  margin: 0.5rem auto 0;
+  padding: 2.75rem 1.5rem;
+}
+
+.payment__inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: 14px;
+  padding: 2rem;
+}
+
+.payment__title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin: 0 0 0.6rem;
+  color: var(--gold);
+}
+
+.payment__desc {
+  margin: 0 0 1rem;
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  max-width: 32ch;
+}
+
+.payment__store {
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+  letter-spacing: 0.02em;
+}
+
+.payment__code {
+  flex-shrink: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 0.6rem;
+  line-height: 0;
+}
+
+.payment__img {
+  display: block;
+  width: 148px;
+  height: auto;
+  border-radius: 4px;
+}
+
+@media (max-width: 560px) {
+  .payment__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .payment__desc {
+    max-width: none;
+  }
+}
+
+/* ---------- Sticky order summary ---------- */
+
+.summary {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--panel);
+  border-top: 1px solid var(--panel-line);
+  padding: 0.9rem 1.5rem;
+}
+
+.summary__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.summary__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.summary__count {
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+}
+
+.summary__total {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.summary__button {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--wa);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1.3rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  flex-shrink: 0;
+}
+
+.summary__button:disabled {
+  background: var(--panel-line);
+  color: var(--ink-dim);
+  cursor: not-allowed;
+}
+
+.summary__button:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+.summary__button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Footer ---------- */
+
+.foot {
+  max-width: 640px;
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+  color: var(--ink-dim);
+  font-size: 0.85rem;
+}
+
+.foot p {
+  margin: 0 0 0.4rem;
+}
+
+.foot__small {
+  opacity: 0.75;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 420px) {
+  .row__name { font-size: 0.98rem; }
+  .masthead { padding: 3.5rem 1.25rem 2.25rem; }
+}
